@@ -1,0 +1,39 @@
+
+
+<div class="product">
+  <div class="product-details"> 
+    <!-- Product Image -->
+    <img [src]="getImageURL()" [style.width.px]="80" [style.height.px]="80" />
+
+    <!-- Product Information -->
+    <div class="product-info">
+      <!-- Product Title -->
+      <div class="name"> {{product!.productTitle}}</div>
+
+      <!-- Promotion Information -->
+      <div class="promotion">Promotion - {{product!.promotion}} </div>
+
+      <!-- Product Category -->
+      <div class="categorie">Category: {{product!.categorie}}</div>
+
+      <!-- Product Quantity -->
+      <div class="quantity"> Quantity: {{product!.quantity}}</div>
+
+      <!-- Product Price -->
+      <div class="price"> Price: ${{product!.productPrice}}</div>
+
+    <!-- Product Description -->
+    <div *ngIf="!showDescription" class="description text-muted custom-product-description">
+      {{ product.description | slice:0:100 }} <!-- Afficher les 100 premiers caractères de la description -->
+      <button class="btn btn-link text-muted  btn-light  " (click)="toggleDescription()"><b>Show more</b></button>
+    </div>
+
+    <div *ngIf="showDescription">
+      <p>{{ product.description }}</p>
+      <button class="btn btn-link text-muted  btn-light " (click)="toggleDescription()"><b>Hide details</b></button>
+    </div>
+  
+    <!-- Buy Now Button -->
+    <button class="cta" (click)="purchase()">Buy Now</button> 
+  </div>
+</div>

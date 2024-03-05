@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+  
+<ul class="products" >
+  <li *ngFor="let product of  getFilteredProducts()" >
+    <app-product-details-component [product]="product" (buy)="buy(product)"></app-product-details-component>
+   
+  </li>
+</ul>
+</body>
+</html>
